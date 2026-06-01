@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  
+  --color-bone: #FAF9F6;
+  --color-earth: #F5EFE6;
+  --color-charcoal: #2C2B29;
+  
+  --color-olive-50: #F4F7F4;
+  --color-olive-100: #E6ECE6;
+  --color-olive-200: #CEDBCD;
+  --color-olive-500: #3E5A44;
+  --color-olive-600: #324937;
+  --color-olive-700: #27382B;
+  
+  --color-terracotta-50: #FAF2EF;
+  --color-terracotta-100: #F4E2DA;
+  --color-terracotta-500: #B87D62;
+  --color-terracotta-600: #9B664F;
+  --color-terracotta-700: #7A4E3B;
+  
+  --color-gold-50: #FAF7F2;
+  --color-gold-100: #F3ECE0;
+  --color-gold-500: #C5A880;
+  --color-gold-600: #A98E67;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float-delayed 8s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.15); }
+}
+
+/* --- Base Customizations --- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    background-color: #FAF9F6; /* bone */
+    color: #2C2B29; /* charcoal */
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+  }
+}
+
+/* --- Custom Utilities --- */
+@layer utilities {
+  /* Slanted sections (Cortes inclinados) */
+  .clip-slant-down {
+    clip-path: polygon(0 0, 100% 4vw, 100% 100%, 0 calc(100% - 4vw));
+  }
+  
+  .clip-slant-up {
+    clip-path: polygon(0 4vw, 100% 0, 100% calc(100% - 4vw), 0 100%);
+  }
+  
+  .clip-slant-hero {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5vw), 0 100%);
+  }
+  
+  .clip-slant-footer {
+    clip-path: polygon(0 5vw, 100% 0, 100% 100%, 0 100%);
+  }
+  
+  /* Glassmorphism */
+  .glass-nav {
+    background: rgba(250, 249, 246, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(197, 168, 128, 0.25);
+  }
+  
+  .glass-card {
+    background: rgba(250, 249, 246, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(197, 168, 128, 0.2);
+  }
+  
+  .glass-dark {
+    background: rgba(44, 43, 41, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(197, 168, 128, 0.15);
+  }
+  
+  /* Scroll Reveal System */
+  .reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .active.reveal,
+  .active.reveal-left,
+  .active.reveal-right,
+  .active.reveal-scale {
+    opacity: 1;
+    transform: translate(0) scale(1);
+  }
+  
+  /* 3D Perspective Base */
+  .perspective-3d {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}

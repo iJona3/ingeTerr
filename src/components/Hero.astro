@@ -1,0 +1,125 @@
+---
+// Hero.astro
+---
+
+<section 
+  id="inicio" 
+  class="relative min-h-[95vh] pt-32 pb-24 md:pt-40 md:pb-36 bg-bone overflow-hidden clip-slant-hero flex items-center"
+>
+  <!-- Background Ambient Blooms -->
+  <div class="absolute top-1/4 left-[-10%] w-[45vw] h-[45vw] rounded-full bg-gold-500/10 blur-[120px] pointer-events-none animate-pulse-slow"></div>
+  <div class="absolute bottom-10 right-[-10%] w-[35vw] h-[35vw] rounded-full bg-olive-500/10 blur-[100px] pointer-events-none animate-float-delayed"></div>
+
+  <div class="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Text Column (Left) -->
+      <div class="lg:col-span-7 flex flex-col items-start text-left reveal-left">
+        <!-- Floating Tag -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-olive-500/10 border border-olive-500/20 text-olive-600 font-sans font-semibold text-xs tracking-wider uppercase mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-olive-500 animate-ping"></span>
+          Pre-venta Exclusiva • Saltillo, Coah.
+        </div>
+        
+        <!-- Main Title -->
+        <h1 class="text-charcoal text-4xl sm:text-5xl md:text-6xl font-bold font-serif leading-[1.1] mb-6 tracking-tight">
+          El lienzo perfecto para construir tu <span class="text-olive-500 italic block mt-1 font-normal font-serif">futuro patrimonio</span>
+        </h1>
+        
+        <!-- Description -->
+        <p class="text-charcoal/75 font-sans text-base md:text-lg leading-relaxed max-w-xl mb-8">
+          Descubre un desarrollo residencial exclusivo diseñado para fusionar la tranquilidad de la naturaleza con la infraestructura moderna que tu familia merece. Lotes urbanizados premium listos para construir.
+        </p>
+        
+        <!-- CTA Group -->
+        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <a 
+            href="#contacto" 
+            class="bg-olive-500 hover:bg-olive-600 text-bone px-8 py-4 rounded-full font-sans font-bold text-sm tracking-wider uppercase text-center transition-all duration-300 shadow-lg hover:shadow-olive-500/30 hover:-translate-y-1"
+          >
+            Ver Lotes Disponibles
+          </a>
+          <a 
+            href="#amenidades" 
+            class="border border-gold-500/40 hover:border-gold-500 text-charcoal/90 hover:text-charcoal px-8 py-4 rounded-full font-sans font-bold text-sm tracking-wider uppercase text-center transition-all duration-300 hover:bg-gold-500/5 hover:-translate-y-1"
+          >
+            Conocer Amenidades
+          </a>
+        </div>
+        
+        <!-- Micro indicators -->
+        <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-charcoal/10 w-full max-w-md">
+          <div>
+            <div class="text-olive-600 font-serif font-bold text-2xl md:text-3xl">250m²</div>
+            <div class="text-charcoal/60 font-sans text-xs uppercase tracking-wider mt-1">Desde</div>
+          </div>
+          <div>
+            <div class="text-olive-600 font-serif font-bold text-2xl md:text-3xl">20%</div>
+            <div class="text-charcoal/60 font-sans text-xs uppercase tracking-wider mt-1">Enganche</div>
+          </div>
+          <div>
+            <div class="text-olive-600 font-serif font-bold text-2xl md:text-3xl">100%</div>
+            <div class="text-charcoal/60 font-sans text-xs uppercase tracking-wider mt-1">Urbanizado</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Image Column (Right) -->
+      <div class="lg:col-span-5 relative flex justify-center lg:justify-end reveal-right">
+        <!-- Image Stack Container -->
+        <div class="relative w-full max-w-[420px] aspect-[4/5] z-10">
+          
+          <!-- Back Decorative Box -->
+          <div class="absolute inset-0 bg-gold-500/10 border border-gold-500/20 rounded-[40px] transform rotate-[4deg] scale-102 -z-10"></div>
+          
+          <!-- Main Image -->
+          <div class="w-full h-full rounded-[40px] overflow-hidden shadow-2xl border-4 border-bone transform rotate-[-2deg] transition-all duration-500 hover:rotate-0 hover:scale-[1.01] cursor-pointer">
+            <img 
+              src="/images/8cf88e542d5b97d7a14bc8b3e6bbe57d.jpg" 
+              alt="Terrenos residenciales en venta" 
+              class="w-full h-full object-cover" 
+            />
+          </div>
+          
+          <!-- Overlay Badge Floating (Plusvalía) -->
+          <div class="absolute bottom-6 -left-6 glass-card rounded-2xl p-4 shadow-xl border border-gold-500/30 flex items-center gap-3 animate-float max-w-[200px]">
+            <div class="w-10 h-10 rounded-full bg-olive-500/20 flex items-center justify-center text-olive-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-serif font-bold text-sm text-charcoal">+18%</div>
+              <div class="font-sans text-[10px] text-charcoal/60 uppercase tracking-wider">Plusvalía Anual Est.</div>
+            </div>
+          </div>
+          
+          <!-- Overlay Badge Floating (Seguridad) -->
+          <div class="absolute -top-6 -right-4 glass-card rounded-2xl p-4 shadow-xl border border-gold-500/30 flex items-center gap-3 animate-float-delayed max-w-[180px]">
+            <div class="w-10 h-10 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-600">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <div>
+              <div class="font-serif font-bold text-xs text-charcoal">Privada Residencial</div>
+              <div class="font-sans text-[9px] text-charcoal/60 uppercase tracking-wider">Acceso Controlado</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- Scroll Down indicator -->
+  <div class="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 hidden md:block">
+    <a href="#amenidades" class="flex flex-col items-center gap-2 group" aria-label="Ver amenidades">
+      <span class="text-[10px] uppercase font-sans tracking-widest text-charcoal/40 group-hover:text-olive-500 transition-colors">Deslizar</span>
+      <div class="w-6 h-10 rounded-full border border-charcoal/30 group-hover:border-olive-500 flex justify-center p-1.5 transition-colors">
+        <div class="w-1 h-2 rounded-full bg-charcoal/60 group-hover:bg-olive-500 animate-bounce"></div>
+      </div>
+    </a>
+  </div>
+</section>

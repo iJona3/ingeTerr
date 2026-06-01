@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Features3D from '../components/Features3D.astro';
+import SlantedBenefits from '../components/SlantedBenefits.astro';
+import InteractiveGallery from '../components/InteractiveGallery.astro';
+import ContactFormWhatsApp from '../components/ContactFormWhatsApp.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="ingeTerr | Venta de Terrenos Residenciales Exclusivos en Saltillo Coahuila">
+	<!-- Pill Glassmorphism Floating Header -->
+	<Navbar />
+	
+	<!-- Main Layout Sections -->
+	<main>
+		<!-- Hero Section with Slanted Cut & Image overlays -->
+		<Hero />
+		
+		<!-- 3D Amenities Cards Grid -->
+		<Features3D />
+		
+		<!-- Slanted Background section & layered images -->
+		<SlantedBenefits />
+		
+		<!-- Project Interactive Gallery and Lightbox (Zero Hydration) -->
+		<InteractiveGallery />
+		
+		<!-- Lead Capture & WhatsApp dynamic submission form -->
+		<ContactFormWhatsApp />
+		
+		<!-- Social Proof Testimonials -->
+		<Testimonials />
+	</main>
+	
+	<!-- Elegant Dark Footer -->
+	<Footer />
+	
+	<!-- Floating WhatsApp CTA with welcoming tooltip -->
+	<FloatingWhatsApp />
+</Layout>

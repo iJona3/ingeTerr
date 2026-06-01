@@ -1,0 +1,192 @@
+---
+// ContactFormWhatsApp.astro
+---
+
+<section id="contacto" class="relative py-24 bg-earth overflow-hidden z-20">
+  <!-- Visual Slanted Dividers -->
+  <div class="absolute inset-0 bg-gradient-to-br from-olive-100/40 via-transparent to-gold-100/30 pointer-events-none"></div>
+  <div class="absolute top-[-5vw] left-0 w-full h-[10vw] bg-bone clip-slant-hero -z-10"></div>
+
+  <!-- Background Ambient Glow -->
+  <div class="absolute bottom-1/4 right-[-10%] w-[40vw] h-[40vw] rounded-full bg-olive-500/10 blur-[120px] pointer-events-none"></div>
+
+  <div class="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      
+      <!-- Text & Info Column (Left) -->
+      <div class="lg:col-span-6 flex flex-col items-start reveal-left">
+        <span class="text-gold-600 font-sans font-semibold text-xs tracking-widest uppercase block mb-3">Contacto Directo</span>
+        <h2 class="text-charcoal text-3xl sm:text-4xl md:text-5xl font-bold font-serif mb-6 leading-tight">
+          ¿Listo para dar el siguiente paso?
+        </h2>
+        <p class="text-charcoal/70 font-sans text-sm md:text-base leading-relaxed mb-8 max-w-xl">
+          Llena el formulario con tus preferencias y uno de nuestros asesores especializados se pondrá en contacto contigo de inmediato a través de WhatsApp para agendar una visita o enviarte la cotización de tu lote ideal.
+        </p>
+
+        <!-- Bullet Points -->
+        <div class="space-y-4 w-full max-w-lg mb-8">
+          <div class="flex items-center gap-3">
+            <div class="w-6 h-6 rounded-full bg-olive-500/10 text-olive-600 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="font-sans text-sm text-charcoal/80">Financiamiento directo con plazos a tu medida.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-6 h-6 rounded-full bg-olive-500/10 text-olive-600 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="font-sans text-sm text-charcoal/80">Ubicaciones preferenciales en pre-venta.</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="w-6 h-6 rounded-full bg-olive-500/10 text-olive-600 flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <span class="font-sans text-sm text-charcoal/80">Asesoría jurídica y escrituración garantizada.</span>
+          </div>
+        </div>
+
+        <!-- Phone Badge -->
+        <div class="glass-card rounded-2xl p-4 border border-gold-500/20 flex items-center gap-4 shadow-md max-w-sm">
+          <div class="w-10 h-10 rounded-full bg-olive-500/15 flex items-center justify-center text-olive-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 00.099.281l-.918.918a1.593 1.593 0 00-.32 1.01c.033.882.234 1.733.586 2.507a1.593 1.593 0 001.01.32l.918-.918a1 1 0 00.281-.099l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+          </div>
+          <div>
+            <div class="font-serif font-bold text-sm text-charcoal">+52 844 123 4567</div>
+            <div class="font-sans text-[10px] text-charcoal/60 uppercase tracking-wider">Línea de Atención Saltillo</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Form Column (Right) -->
+      <div class="lg:col-span-6 reveal-right">
+        <div class="glass-card rounded-[32px] p-6 md:p-10 shadow-2xl border border-gold-500/20">
+          <h3 class="text-charcoal font-serif font-bold text-2xl mb-6 text-center">Cotizar mi Lote</h3>
+          
+          <form id="whatsapp-contact-form" class="space-y-5">
+            <!-- Name Input -->
+            <div class="flex flex-col gap-1.5">
+              <label for="form-name" class="font-sans font-semibold text-xs text-charcoal/70 uppercase tracking-wider">Nombre Completo</label>
+              <input 
+                type="text" 
+                id="form-name" 
+                name="name" 
+                required 
+                placeholder="Ej. Juan Pérez"
+                class="w-full px-4 py-3.5 rounded-2xl bg-bone/70 border border-gold-500/20 text-charcoal placeholder-charcoal/40 font-sans text-sm focus:outline-none focus:border-olive-500 focus:ring-1 focus:ring-olive-500 transition-all duration-300 shadow-inner"
+              />
+            </div>
+
+            <!-- Phone Input -->
+            <div class="flex flex-col gap-1.5">
+              <label for="form-phone" class="font-sans font-semibold text-xs text-charcoal/70 uppercase tracking-wider">Teléfono de Contacto</label>
+              <input 
+                type="tel" 
+                id="form-phone" 
+                name="phone" 
+                required 
+                placeholder="Ej. 844 123 4567"
+                class="w-full px-4 py-3.5 rounded-2xl bg-bone/70 border border-gold-500/20 text-charcoal placeholder-charcoal/40 font-sans text-sm focus:outline-none focus:border-olive-500 focus:ring-1 focus:ring-olive-500 transition-all duration-300 shadow-inner"
+              />
+            </div>
+
+            <!-- Lot Size Dropdown -->
+            <div class="flex flex-col gap-1.5">
+              <label for="form-size" class="font-sans font-semibold text-xs text-charcoal/70 uppercase tracking-wider">Tamaño de Terreno de Interés</label>
+              <div class="relative">
+                <select 
+                  id="form-size" 
+                  name="size" 
+                  required
+                  class="w-full px-4 py-3.5 rounded-2xl bg-bone/70 border border-gold-500/20 text-charcoal font-sans text-sm focus:outline-none focus:border-olive-500 focus:ring-1 focus:ring-olive-500 transition-all duration-300 shadow-inner appearance-none cursor-pointer"
+                >
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="200m² a 250m²">200m² a 250m²</option>
+                  <option value="250m² a 300m²">250m² a 300m²</option>
+                  <option value="300m² a 350m²">300m² a 350m²</option>
+                  <option value="Más de 350m²">Más de 350m² (Preferenciales)</option>
+                </select>
+                <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-charcoal/50">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Message Textarea -->
+            <div class="flex flex-col gap-1.5">
+              <label for="form-message" class="font-sans font-semibold text-xs text-charcoal/70 uppercase tracking-wider">Mensaje (Opcional)</label>
+              <textarea 
+                id="form-message" 
+                name="message" 
+                rows="3" 
+                placeholder="Ej. Me interesa el financiamiento a 12 meses..."
+                class="w-full px-4 py-3.5 rounded-2xl bg-bone/70 border border-gold-500/20 text-charcoal placeholder-charcoal/40 font-sans text-sm focus:outline-none focus:border-olive-500 focus:ring-1 focus:ring-olive-500 transition-all duration-300 shadow-inner resize-none"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button 
+              type="submit" 
+              class="w-full bg-olive-500 hover:bg-olive-600 text-bone py-4 rounded-2xl font-sans font-bold text-sm tracking-wider uppercase transition-all duration-300 shadow-lg hover:shadow-olive-500/20 flex items-center justify-center gap-2 cursor-pointer mt-4"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.835-3.341c1.642.975 3.254 1.488 4.792 1.49 5.391-.002 9.778-4.381 9.782-9.77.002-2.585-1.002-5.016-2.83-6.845-1.828-1.83-4.257-2.834-6.843-2.835-5.392 0-9.781 4.382-9.785 9.771-.001 1.7.457 3.36 1.328 4.867L2.148 21.84l4.744-1.181zM15.91 18.23c-.266-.134-1.579-.78-1.823-.868-.243-.089-.422-.132-.599.135-.177.266-.688.868-.843 1.046-.156.177-.312.2-.578.066-.266-.134-1.125-.415-2.142-1.326-.79-.705-1.324-1.575-1.48-1.84-.155-.267-.016-.41.117-.543.12-.12.266-.31.4-.465.133-.155.177-.266.266-.443.089-.177.044-.333-.022-.466-.067-.133-.599-1.442-.821-1.974-.216-.52-.435-.449-.599-.457-.156-.008-.335-.009-.513-.009-.177 0-.466.067-.71.334-.244.267-.932.91-.932 2.219s.954 2.572 1.088 2.75c.133.177 1.88 2.871 4.554 4.024.636.275 1.13.439 1.517.562.64.203 1.22.174 1.678.106.512-.076 1.579-.646 1.801-1.267.222-.62.222-1.152.155-1.266-.067-.113-.244-.177-.512-.311z"/>
+              </svg>
+              Enviar a WhatsApp
+            </button>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<script>
+  // Form submission and WhatsApp redirect logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('whatsapp-contact-form');
+    
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // 1. Get form values
+        const nameVal = (document.getElementById('form-name') as HTMLInputElement).value.trim();
+        const phoneVal = (document.getElementById('form-phone') as HTMLInputElement).value.trim();
+        const sizeVal = (document.getElementById('form-size') as HTMLSelectElement).value;
+        const messageVal = (document.getElementById('form-message') as HTMLTextAreaElement).value.trim();
+        
+        // WhatsApp destination number (change placeholder as needed)
+        // Format: Country Code + Area Code + Number (e.g. 52 for Mexico, 844 for Saltillo)
+        const whatsappNumber = '528441234567'; 
+        
+        // 2. Format WhatsApp Message
+        let messageText = `Hola *ingeTerr*, me interesa recibir información sobre los terrenos en Saltillo.\n\n`;
+        messageText += `*Nombre:* ${nameVal}\n`;
+        messageText += `*Teléfono:* ${phoneVal}\n`;
+        messageText += `*Lote de Interés:* ${sizeVal}\n`;
+        
+        if (messageText && messageVal) {
+          messageText += `*Mensaje:* ${messageVal}\n`;
+        }
+        
+        // 3. Encode message text for URL
+        const encodedMessage = encodeURIComponent(messageText);
+        
+        // 4. Construct URL and open in new tab
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+      });
+    }
+  });
+</script>

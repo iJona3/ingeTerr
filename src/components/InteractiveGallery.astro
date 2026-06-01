@@ -1,0 +1,457 @@
+---
+// InteractiveGallery.astro
+
+const images = [
+  {
+    src: "/images/8cf88e542d5b97d7a14bc8b3e6bbe57d.jpg",
+    alt: "Vista panorámica de la Sierra de Saltillo",
+    category: "entorno",
+    title: "Vistas de la Sierra"
+  },
+  {
+    src: "/images/12a00009671a0d08caf9cd8fde6575ea.jpg",
+    alt: "Urbanización y calles pavimentadas del fraccionamiento",
+    category: "urbanizacion",
+    title: "Vías de Acceso"
+  },
+  {
+    src: "/images/4664131bf6c7861d8cc19f32b744394a.jpg",
+    alt: "Trazo de lotes residenciales planos",
+    category: "lotes",
+    title: "Lotes Urbanizados"
+  },
+  {
+    src: "/images/a169e17bb8e9920ed3620efd4606599e.jpg",
+    alt: "Plano digital de lotes y distribución urbana",
+    category: "lotes",
+    title: "Distribución de Lotes"
+  },
+  {
+    src: "/images/b34bc8bd20cbe72fdc80906ce4b9ff97.jpg",
+    alt: "Maquinaria trabajando en la urbanización del terreno",
+    category: "urbanizacion",
+    title: "Obras de Urbanización"
+  },
+  {
+    src: "/images/b50907456928894b30f1c4cdce96cba0.jpg",
+    alt: "Entorno natural y áreas arboladas",
+    category: "entorno",
+    title: "Áreas Verdes"
+  },
+  {
+    src: "/images/c5bdb29c1f1bc15569e9336c15a8178c.jpg",
+    alt: "Avenidas principales del desarrollo residencial",
+    category: "urbanizacion",
+    title: "Avenidas Principales"
+  },
+  {
+    src: "/images/c70e51c89a335408cbac50cb90c621ae.jpg",
+    alt: "Perspectiva de lotes residenciales disponibles",
+    category: "lotes",
+    title: "Lotes en Pre-venta"
+  }
+];
+---
+
+<section id="galeria" class="relative py-24 bg-bone overflow-hidden z-20">
+  <div class="container mx-auto px-4 md:px-8 max-w-7xl">
+    
+    <!-- Header -->
+    <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+      <span class="text-gold-600 font-sans font-semibold text-xs tracking-widest uppercase block mb-3">Galería del Proyecto</span>
+      <h2 class="text-charcoal text-3xl sm:text-4xl md:text-5xl font-bold font-serif mb-6 leading-tight">
+        Conoce el desarrollo en Saltillo
+      </h2>
+      <p class="text-charcoal/70 font-sans text-sm md:text-base leading-relaxed">
+        Visualiza el avance de obra, la distribución de los terrenos y la belleza del entorno natural que rodeará tu próximo hogar.
+      </p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap justify-center items-center gap-2 md:gap-4 mb-10 reveal-scale">
+      <button 
+        class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 bg-olive-500 text-bone shadow-md cursor-pointer" 
+        data-filter="all"
+      >
+        Todos
+      </button>
+      <button 
+        class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 bg-olive-500/10 text-olive-600 hover:bg-olive-500/20 cursor-pointer" 
+        data-filter="entorno"
+      >
+        Entorno
+      </button>
+      <button 
+        class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 bg-olive-500/10 text-olive-600 hover:bg-olive-500/20 cursor-pointer" 
+        data-filter="urbanizacion"
+      >
+        Urbanización
+      </button>
+      <button 
+        class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 bg-olive-500/10 text-olive-600 hover:bg-olive-500/20 cursor-pointer" 
+        data-filter="lotes"
+      >
+        Lotes y Planos
+      </button>
+    </div>
+
+    <!-- Gallery Grid (Mobile-first dense 2-column) -->
+    <div 
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 reveal"
+      id="gallery-grid"
+    >
+      {images.map((img, index) => (
+        <div 
+          class="gallery-item group relative cursor-pointer overflow-hidden rounded-[24px] aspect-[4/3] bg-olive-50 border border-gold-500/10 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500" 
+          data-category={img.category}
+          data-index={index}
+        >
+          <!-- Image -->
+          <img 
+            src={img.src} 
+            alt={img.alt} 
+            loading="lazy"
+            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          />
+          <!-- Hover Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6">
+            <span class="text-gold-500 text-[10px] font-sans font-semibold uppercase tracking-wider mb-1">
+              {img.category === 'entorno' ? 'Entorno' : img.category === 'urbanizacion' ? 'Urbanización' : 'Plano / Terreno'}
+            </span>
+            <h4 class="text-bone font-serif font-bold text-base md:text-lg leading-tight">
+              {img.title}
+            </h4>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+
+  <!-- Advanced Interactive Lightbox -->
+  <div 
+    id="lightbox" 
+    class="fixed inset-0 z-[100] bg-charcoal/95 backdrop-blur-md flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300"
+    role="dialog"
+    aria-modal="true"
+  >
+    <!-- Close Button -->
+    <button 
+      id="lightbox-close" 
+      class="absolute top-6 right-6 w-12 h-12 rounded-full bg-bone/10 hover:bg-bone/20 text-bone flex items-center justify-center text-2xl focus:outline-none transition-colors cursor-pointer"
+      aria-label="Cerrar galería"
+    >
+      &times;
+    </button>
+
+    <!-- Navigation Arrows -->
+    <button 
+      id="lightbox-prev" 
+      class="absolute left-4 md:left-8 w-12 h-12 rounded-full bg-bone/10 hover:bg-bone/20 text-bone flex items-center justify-center text-xl focus:outline-none transition-colors cursor-pointer"
+      aria-label="Imagen anterior"
+    >
+      &#10094;
+    </button>
+    <button 
+      id="lightbox-next" 
+      class="absolute right-4 md:right-8 w-12 h-12 rounded-full bg-bone/10 hover:bg-bone/20 text-bone flex items-center justify-center text-xl focus:outline-none transition-colors cursor-pointer"
+      aria-label="Siguiente imagen"
+    >
+      &#10095;
+    </button>
+
+    <!-- Zoom & Control Bar (Bottom center) -->
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-bone/10 backdrop-blur-md px-6 py-2.5 rounded-full flex items-center gap-4 border border-bone/20 text-bone z-50">
+      <button id="zoom-out" class="w-8 h-8 rounded-full hover:bg-bone/10 flex items-center justify-center text-lg focus:outline-none cursor-pointer" title="Alejar ( - )">&minus;</button>
+      <span id="zoom-indicator" class="font-sans text-xs font-semibold tracking-wider select-none min-w-[45px] text-center">100%</span>
+      <button id="zoom-in" class="w-8 h-8 rounded-full hover:bg-bone/10 flex items-center justify-center text-lg focus:outline-none cursor-pointer" title="Acercar ( + )">&plus;</button>
+      <div class="w-px h-4 bg-bone/20"></div>
+      <button id="zoom-reset" class="text-xs hover:underline uppercase tracking-widest font-semibold focus:outline-none cursor-pointer" title="Restaurar ( Esc )">Reset</button>
+    </div>
+
+    <!-- Image Container with Drag Panning -->
+    <div class="w-full max-w-[85vw] max-h-[75vh] flex items-center justify-center overflow-hidden cursor-grab" id="lightbox-container">
+      <img 
+        id="lightbox-img" 
+        src="" 
+        alt="" 
+        class="max-w-full max-h-[75vh] object-contain rounded-xl select-none transform transition-transform duration-300 origin-center"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  // Filter and Lightbox script logic
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Gallery Filter Logic
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    // Convert NodeList to Array to preserve indexing of active/visible items
+    let visibleItemsArray = Array.from(galleryItems);
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Change active button styles
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-olive-500', 'text-bone', 'shadow-md');
+          b.classList.add('bg-olive-500/10', 'text-olive-600', 'hover:bg-olive-500/20');
+        });
+        btn.classList.add('bg-olive-500', 'text-bone', 'shadow-md');
+        btn.classList.remove('bg-olive-500/10', 'text-olive-600', 'hover:bg-olive-500/20');
+
+        const filter = btn.getAttribute('data-filter');
+        visibleItemsArray = [];
+
+        galleryItems.forEach(item => {
+          const itemCat = item.getAttribute('data-category');
+          
+          if (filter === 'all' || itemCat === filter) {
+            (item as HTMLElement).style.display = 'block';
+            visibleItemsArray.push(item);
+          } else {
+            (item as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 2. Advanced Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    const lightboxContainer = document.getElementById('lightbox-container');
+    
+    // Zoom control elements
+    const zoomInBtn = document.getElementById('zoom-in');
+    const zoomOutBtn = document.getElementById('zoom-out');
+    const zoomResetBtn = document.getElementById('zoom-reset');
+    const zoomIndicator = document.getElementById('zoom-indicator');
+
+    // State Variables
+    let currentIndex = 0;
+    let currentZoom = 1;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+    let translateX = 0;
+    let translateY = 0;
+
+    // Apply Transformation Matrix to Lightbox Image
+    const applyTransform = (transition = true) => {
+      if (lightboxImg) {
+        if (transition) {
+          lightboxImg.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+        } else {
+          lightboxImg.style.transition = 'none';
+        }
+        lightboxImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentZoom})`;
+        
+        if (zoomIndicator) {
+          zoomIndicator.textContent = `${Math.round(currentZoom * 100)}%`;
+        }
+
+        // Adjust grab vs grabbing cursor based on state
+        if (currentZoom > 1) {
+          lightboxContainer?.classList.remove('cursor-grab');
+          lightboxContainer?.classList.add('cursor-move');
+        } else {
+          lightboxContainer?.classList.remove('cursor-move');
+          lightboxContainer?.classList.add('cursor-grab');
+        }
+      }
+    };
+
+    // Reset Image Position and Zoom
+    const resetZoomAndPosition = () => {
+      currentZoom = 1;
+      translateX = 0;
+      translateY = 0;
+      applyTransform();
+    };
+
+    // Open Lightbox
+    const openLightbox = (index: number) => {
+      const activeItem = visibleItemsArray[index];
+      if (!activeItem) return;
+      
+      const imgEl = activeItem.querySelector('img');
+      if (!imgEl || !lightbox || !lightboxImg) return;
+
+      currentIndex = index;
+      lightboxImg.src = imgEl.src;
+      lightboxImg.alt = imgEl.alt;
+      
+      lightbox.classList.remove('opacity-0', 'pointer-events-none');
+      lightbox.classList.add('opacity-100', 'pointer-events-auto');
+      document.body.style.overflow = 'hidden'; // android scroll-lock
+      
+      resetZoomAndPosition();
+    };
+
+    // Close Lightbox
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.add('opacity-0', 'pointer-events-none');
+      lightbox.classList.remove('opacity-100', 'pointer-events-auto');
+      document.body.style.overflow = ''; // restore scroll
+      resetZoomAndPosition();
+    };
+
+    // Navigate Images
+    const navigate = (direction: 'next' | 'prev') => {
+      if (visibleItemsArray.length === 0) return;
+      
+      let nextIndex = currentIndex;
+      if (direction === 'next') {
+        nextIndex = (currentIndex + 1) % visibleItemsArray.length;
+      } else {
+        nextIndex = (currentIndex - 1 + visibleItemsArray.length) % visibleItemsArray.length;
+      }
+      
+      openLightbox(nextIndex);
+    };
+
+    // Attach click triggers to all grid items
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        // Find current item's index in the filtered active items list
+        const activeIndex = visibleItemsArray.indexOf(item);
+        if (activeIndex !== -1) {
+          openLightbox(activeIndex);
+        }
+      });
+    });
+
+    // Close triggers
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (e) => {
+      // Close only if click is directly on background/arrows, not on image or control buttons
+      const target = e.target as HTMLElement;
+      if (target === lightbox || target === lightboxContainer) {
+        closeLightbox();
+      }
+    });
+
+    // Navigation triggers
+    lightboxPrev?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navigate('prev');
+    });
+    lightboxNext?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navigate('next');
+    });
+
+    // --- Zoom Triggers ---
+    const handleZoomIn = (e?: Event) => {
+      e?.stopPropagation();
+      if (currentZoom < 4) {
+        currentZoom += 0.5;
+        applyTransform();
+      }
+    };
+
+    const handleZoomOut = (e?: Event) => {
+      e?.stopPropagation();
+      if (currentZoom > 1) {
+        currentZoom -= 0.5;
+        if (currentZoom <= 1) {
+          resetZoomAndPosition();
+        } else {
+          applyTransform();
+        }
+      }
+    };
+
+    zoomInBtn?.addEventListener('click', handleZoomIn);
+    zoomOutBtn?.addEventListener('click', handleZoomOut);
+    zoomResetBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      resetZoomAndPosition();
+    });
+
+    // Double click to zoom toggle (1x to 2.5x)
+    lightboxImg?.addEventListener('dblclick', (e) => {
+      e.stopPropagation();
+      if (currentZoom > 1) {
+        resetZoomAndPosition();
+      } else {
+        currentZoom = 2.5;
+        applyTransform();
+      }
+    });
+
+    // --- Drag & Pan Logic (Only when zoomed) ---
+    const startDrag = (clientX: number, clientY: number) => {
+      if (currentZoom > 1) {
+        isDragging = true;
+        startX = clientX - translateX;
+        startY = clientY - translateY;
+      }
+    };
+
+    const moveDrag = (clientX: number, clientY: number) => {
+      if (isDragging) {
+        translateX = clientX - startX;
+        translateY = clientY - startY;
+        applyTransform(false); // No transition during drag for smoothness
+      }
+    };
+
+    const stopDrag = () => {
+      isDragging = false;
+    };
+
+    // Mouse drag events
+    lightboxContainer?.addEventListener('mousedown', (e: MouseEvent) => {
+      e.preventDefault();
+      startDrag(e.clientX, e.clientY);
+    });
+
+    window.addEventListener('mousemove', (e: MouseEvent) => {
+      moveDrag(e.clientX, e.clientY);
+    });
+
+    window.addEventListener('mouseup', () => {
+      stopDrag();
+    });
+
+    // Touch drag events (Mobile)
+    lightboxContainer?.addEventListener('touchstart', (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        startDrag(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchmove', (e: TouchEvent) => {
+      if (isDragging && e.touches.length === 1) {
+        moveDrag(e.touches[0].clientX, e.touches[0].clientY);
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      stopDrag();
+    });
+
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (lightbox && lightbox.classList.contains('opacity-100')) {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+          navigate('next');
+        } else if (e.key === 'ArrowLeft') {
+          navigate('prev');
+        } else if (e.key === '+' || e.key === '=') {
+          handleZoomIn();
+        } else if (e.key === '-') {
+          handleZoomOut();
+        }
+      }
+    });
+  });
+</script>
