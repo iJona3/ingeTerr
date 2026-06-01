@@ -4,26 +4,32 @@
 const reviews = [
   {
     name: "Alejandro Ramos",
-    role: "Inversionista Patrimonial",
+    roleEs: "Inversionista Patrimonial",
+    roleEn: "Patrimonial Investor",
     initials: "AR",
     avatarBg: "bg-olive-500/10 text-olive-600",
-    text: "Adquirir en la fase de pre-venta con Coronado Real Estate ha sido mi mejor decisión de inversión de este año. La plusvalía en la zona norte de Saltillo crece constantemente y el proyecto de urbanización es impecable.",
+    textEs: "Adquirir en la fase de pre-venta con Coronado Real Estate ha sido mi mejor decisión de inversión de este año. La plusvalía en la zona norte de Saltillo crece constantemente y el proyecto de urbanización es impecable.",
+    textEn: "Buying in the pre-sale phase with Coronado Real Estate has been my best investment decision of this year. The surplus value in the north zone of Saltillo grows constantly and the urbanization project is impeccable.",
     rating: 5
   },
   {
     name: "Mariela Ortiz",
-    role: "Próxima Residente",
+    roleEs: "Próxima Residente",
+    roleEn: "Future Resident",
     initials: "MO",
     avatarBg: "bg-gold-500/20 text-gold-600",
-    text: "Buscábamos un lugar seguro y pacífico para nuestra familia. Nos convenció el diseño con cableado subterráneo porque preserva totalmente la vista limpia de las montañas. El trato fue sumamente transparente.",
+    textEs: "Buscábamos un lugar seguro y pacífico para nuestra familia. Nos convenció el diseño con cableado subterráneo porque preserva totalmente la vista limpia de las montañas. El trato fue sumamente transparente.",
+    textEn: "We were looking for a safe and peaceful place for our family. We were convinced by the underground wiring design because it completely preserves the clean view of the mountains. The deal was extremely transparent.",
     rating: 5
   },
   {
     name: "Gerardo Valdés",
-    role: "Comprador de Lote",
+    roleEs: "Comprador de Lote",
+    roleEn: "Lot Buyer",
     initials: "GV",
     avatarBg: "bg-olive-500/10 text-olive-600",
-    text: "La atención por WhatsApp fue muy ágil y profesional. Me explicaron las opciones de enganche y financiamiento directo detalladamente. Agendamos la visita el mismo fin de semana y ya apartamos nuestro lote.",
+    textEs: "La atención por WhatsApp fue muy ágil y profesional. Me explicaron las opciones de enganche y financiamiento directo detalladamente. Agendamos la visita el mismo fin de semana y ya apartamos nuestro lote.",
+    textEn: "The attention on WhatsApp was very agile and professional. They explained the down payment and direct financing options in detail. We scheduled the visit the same weekend and have already reserved our lot.",
     rating: 5
   }
 ];
@@ -37,12 +43,16 @@ const reviews = [
     
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-      <span class="text-gold-600 font-sans font-semibold text-xs tracking-widest uppercase block mb-3">Testimonios Reales</span>
+      <span class="text-gold-600 font-sans font-semibold text-xs tracking-widest uppercase block mb-3">
+        <span class="lang-es">Testimonios Reales</span><span class="lang-en">Real Testimonials</span>
+      </span>
       <h2 class="text-charcoal text-3xl sm:text-4xl md:text-5xl font-bold font-serif mb-6 leading-tight">
-        La confianza de nuestros clientes
+        <span class="lang-es">La confianza de nuestros clientes</span>
+        <span class="lang-en">The Trust of Our Clients</span>
       </h2>
       <p class="text-charcoal/70 font-sans text-sm md:text-base leading-relaxed">
-        Descubre por qué familias e inversionistas eligen Coronado Real Estate para cimentar su futuro y asegurar su patrimonio en Saltillo.
+        <span class="lang-es">Descubre por qué familias e inversionistas eligen Coronado Real Estate para cimentar su futuro y asegurar su patrimonio en Saltillo.</span>
+        <span class="lang-en">Discover why families and investors choose Coronado Real Estate to build their future and secure their wealth in Saltillo.</span>
       </p>
     </div>
 
@@ -66,7 +76,8 @@ const reviews = [
             
             <!-- Comment Text -->
             <blockquote class="text-charcoal/80 font-sans text-sm italic leading-relaxed mb-8">
-              "{rev.text}"
+              <span class="lang-es">"{rev.textEs}"</span>
+              <span class="lang-en">"{rev.textEn}"</span>
             </blockquote>
           </div>
 
@@ -81,7 +92,8 @@ const reviews = [
                 {rev.name}
               </cite>
               <span class="font-sans text-[10px] text-charcoal/50 uppercase tracking-wider block mt-0.5">
-                {rev.role}
+                <span class="lang-es">{rev.roleEs}</span>
+                <span class="lang-en">{rev.roleEn}</span>
               </span>
             </div>
           </div>

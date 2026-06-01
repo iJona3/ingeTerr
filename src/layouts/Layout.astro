@@ -33,6 +33,17 @@ const {
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+		
+		<!-- Initial Language Setup -->
+		<script is:inline>
+			(function() {
+				const savedLang = localStorage.getItem('preferred-lang') || 
+					(navigator.language && navigator.language.startsWith('en') ? 'en' : 'es');
+				if (savedLang === 'en') {
+					document.documentElement.classList.add('lang-en');
+				}
+			})();
+		</script>
 	</head>
 	<body>
 		<slot />

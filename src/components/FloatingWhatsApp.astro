@@ -15,29 +15,52 @@
     <!-- Content -->
     <div class="flex-1">
       <div class="flex justify-between items-start gap-1">
-        <span class="font-serif font-bold text-xs text-charcoal">Asesores Coronado Real Estate</span>
+        <span class="font-serif font-bold text-xs text-charcoal">
+          <span class="lang-es">Asesores Coronado Real Estate</span>
+          <span class="lang-en">Coronado Real Estate Advisors</span>
+        </span>
         <button 
           id="wa-tooltip-close" 
           class="text-charcoal/40 hover:text-charcoal text-base font-semibold leading-none focus:outline-none transition-colors cursor-pointer"
-          title="Cerrar mensaje"
+          title="Cerrar mensaje / Close message"
         >
           &times;
         </button>
       </div>
       <p class="font-sans text-xs text-charcoal/70 leading-relaxed mt-1">
-        ¡Hola! ¿Quieres agendar una visita guiada o recibir cotizaciones de terrenos en Saltillo? Escríbenos directamente.
+        <span class="lang-es">¡Hola! ¿Quieres agendar una visita guiada o recibir cotizaciones de terrenos en Saltillo? Escríbenos directamente.</span>
+        <span class="lang-en">Hello! Would you like to schedule a guided tour or receive land quotes in Saltillo? Write to us directly.</span>
       </p>
     </div>
   </div>
 
-  <!-- Pulsating WhatsApp Button -->
+  <!-- Pulsating WhatsApp Button (ES) -->
   <a 
     href="https://wa.me/528441234567?text=Hola%20Coronado%20Real%20Estate%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20sobre%20los%20terrenos%20residenciales%20en%20Saltillo." 
     target="_blank" 
     rel="noopener noreferrer"
-    class="relative w-14 h-14 rounded-full bg-[#25D366] text-bone flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group cursor-pointer"
+    class="lang-es relative w-14 h-14 rounded-full bg-[#25D366] text-bone flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group cursor-pointer"
     aria-label="Contactar por WhatsApp"
     id="wa-floating-btn"
+  >
+    <!-- Concentric pulsating waves -->
+    <span class="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping opacity-75"></span>
+    <span class="absolute -inset-1 rounded-full bg-[#25D366]/20 animate-pulse"></span>
+    
+    <!-- SVG WhatsApp Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 relative z-10 fill-current" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.835-3.341c1.642.975 3.254 1.488 4.792 1.49 5.391-.002 9.778-4.381 9.782-9.77.002-2.585-1.002-5.016-2.83-6.845-1.828-1.83-4.257-2.834-6.843-2.835-5.392 0-9.781 4.382-9.785 9.771-.001 1.7.457 3.36 1.328 4.867L2.148 21.84l4.744-1.181zM15.91 18.23c-.266-.134-1.579-.78-1.823-.868-.243-.089-.422-.132-.599.135-.177.266-.688.868-.843 1.046-.156.177-.312.2-.578.066-.266-.134-1.125-.415-2.142-1.326-.79-.705-1.324-1.575-1.48-1.84-.155-.267-.016-.41.117-.543.12-.12.266-.31.4-.465.133-.155.177-.266.266-.443.089-.177.044-.333-.022-.466-.067-.133-.599-1.442-.821-1.974-.216-.52-.435-.449-.599-.457-.156-.008-.335-.009-.513-.009-.177 0-.466.067-.71.334-.244.267-.932.91-.932 2.219s.954 2.572 1.088 2.75c.133.177 1.88 2.871 4.554 4.024.636.275 1.13.439 1.517.562.64.203 1.22.174 1.678.106.512-.076 1.579-.646 1.801-1.267.222-.62.222-1.152.155-1.266-.067-.113-.244-.177-.512-.311z"/>
+    </svg>
+  </a>
+
+  <!-- Pulsating WhatsApp Button (EN) -->
+  <a 
+    href="https://wa.me/528441234567?text=Hello%20Coronado%20Real%20Estate%2C%20I%20would%20like%20to%20get%20information%20about%20the%20residential%20lots%20in%20Saltillo." 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="lang-en relative w-14 h-14 rounded-full bg-[#25D366] text-bone flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 group cursor-pointer"
+    aria-label="Contact via WhatsApp"
+    id="wa-floating-btn-en"
   >
     <!-- Concentric pulsating waves -->
     <span class="absolute inset-0 rounded-full bg-[#25D366]/40 animate-ping opacity-75"></span>
@@ -56,6 +79,7 @@
     const tooltip = document.getElementById('wa-tooltip');
     const closeBtn = document.getElementById('wa-tooltip-close');
     const waBtn = document.getElementById('wa-floating-btn');
+    const waBtnEn = document.getElementById('wa-floating-btn-en');
 
     // 1. Show bubble after 3 seconds
     const tooltipTimeout = setTimeout(() => {
@@ -81,12 +105,15 @@
     }
 
     // 3. Close bubble when clicking button itself
-    if (waBtn && tooltip) {
-      waBtn.addEventListener('click', () => {
+    const closeBubble = () => {
+      if (tooltip) {
         tooltip.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
         tooltip.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
         sessionStorage.setItem('wa-tooltip-closed', 'true');
-      });
-    }
+      }
+    };
+
+    if (waBtn) waBtn.addEventListener('click', closeBubble);
+    if (waBtnEn) waBtnEn.addEventListener('click', closeBubble);
   });
 </script>

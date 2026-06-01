@@ -158,4 +158,12 @@
   .preserve-3d {
     transform-style: preserve-3d;
   }
+
+  /* Language display toggles */
+  html.lang-en .lang-es {
+    display: none !important;
+  }
+  html:not(.lang-en) .lang-en {
+    display: none !important;
+  }
 }

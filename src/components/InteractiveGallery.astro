@@ -13,51 +13,67 @@ import galleryImg8 from '../assets/images/c70e51c89a335408cbac50cb90c621ae.jpg';
 const images = [
   {
     src: galleryImg1,
-    alt: "Vista panorámica de la Sierra de Saltillo",
+    altEs: "Vista panorámica de la Sierra de Saltillo",
+    altEn: "Panoramic view of the Saltillo mountains",
     category: "entorno",
-    title: "Vistas de la Sierra"
+    titleEs: "Vistas de la Sierra",
+    titleEn: "Mountain Views"
   },
   {
     src: galleryImg2,
-    alt: "Urbanización y calles pavimentadas del fraccionamiento",
+    altEs: "Urbanización y calles pavimentadas del fraccionamiento",
+    altEn: "Urbanization and paved streets of the neighborhood",
     category: "urbanizacion",
-    title: "Vías de Acceso"
+    titleEs: "Vías de Acceso",
+    titleEn: "Access Roads"
   },
   {
     src: galleryImg3,
-    alt: "Trazo de lotes residenciales planos",
+    altEs: "Trazo de lotes residenciales planos",
+    altEn: "Layout of flat residential lots",
     category: "lotes",
-    title: "Lotes Urbanizados"
+    titleEs: "Lotes Urbanizados",
+    titleEn: "Urbanized Lots"
   },
   {
     src: galleryImg4,
-    alt: "Plano digital de lotes y distribución urbana",
+    altEs: "Plano digital de lotes y distribución urbana",
+    altEn: "Digital map of lots and urban layout",
     category: "lotes",
-    title: "Distribución de Lotes"
+    titleEs: "Distribución de Lotes",
+    titleEn: "Lot Layout"
   },
   {
     src: galleryImg5,
-    alt: "Maquinaria trabajando en la urbanización del terreno",
+    altEs: "Maquinaria trabajando en la urbanización del terreno",
+    altEn: "Machinery working on the urbanization of the land",
     category: "urbanizacion",
-    title: "Obras de Urbanización"
+    titleEs: "Obras de Urbanización",
+    titleEn: "Urbanization Work"
   },
   {
     src: galleryImg6,
-    alt: "Entorno natural y áreas arboladas",
+    altEs: "Entorno natural y áreas arboladas",
+    altEn: "Natural surroundings and wooded areas",
     category: "entorno",
-    title: "Áreas Verdes"
+    titleEs: "Áreas Verdes",
+    titleEn: "Green Spaces"
   },
   {
     src: galleryImg7,
-    alt: "Avenidas principales del desarrollo residencial",
+    altEs: "Avenidas principales del desarrollo residencial",
+    altEn: "Main avenues of the residential development",
     category: "urbanizacion",
-    title: "Avenidas Principales"
+    titleEs: "Avenidas Principales",
+    titleEn: "Main Avenues"
   },
   {
     src: galleryImg8,
-    alt: "Perspectiva de lotes residenciales disponibles",
+    altEs: "Perspectiva de lotes residenciales disponibles",
+    altEn: "Perspective of available residential lots",
     category: "lotes",
-    title: "Lotes en Pre-venta"
+    titleEs: "Lotes en Pre-venta",
+    titleEn: "Pre-sale Lots"
   }
 ];
 ---
@@ -67,12 +83,16 @@ const images = [
     
     <!-- Header -->
     <div class="text-center max-w-2xl mx-auto mb-12 reveal">
-      <span class="text-gold-600 font-sans font-semibold text-xs tracking-widest uppercase block mb-3">Galería del Proyecto</span>
+      <span class="text-gold-600 font-sans font-semibold text-xs tracking-widest uppercase block mb-3">
+        <span class="lang-es">Galería del Proyecto</span><span class="lang-en">Project Gallery</span>
+      </span>
       <h2 class="text-charcoal text-3xl sm:text-4xl md:text-5xl font-bold font-serif mb-6 leading-tight">
-        Conoce el desarrollo en Saltillo
+        <span class="lang-es">Conoce el desarrollo en Saltillo</span>
+        <span class="lang-en">Discover the Development in Saltillo</span>
       </h2>
       <p class="text-charcoal/70 font-sans text-sm md:text-base leading-relaxed">
-        Visualiza el avance de obra, la distribución de los terrenos y la belleza del entorno natural que rodeará tu próximo hogar.
+        <span class="lang-es">Visualiza el avance de obra, la distribución de los terrenos y la belleza del entorno natural que rodeará tu próximo hogar.</span>
+        <span class="lang-en">Visualize the progress of work, the layout of the lots, and the beauty of the natural surroundings that will embrace your next home.</span>
       </p>
     </div>
 
@@ -82,25 +102,25 @@ const images = [
         class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 bg-olive-500 text-bone shadow-md cursor-pointer" 
         data-filter="all"
       >
-        Todos
+        <span class="lang-es">Todos</span><span class="lang-en">All</span>
       </button>
       <button 
         class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 bg-olive-500/10 text-olive-600 hover:bg-olive-500/20 cursor-pointer" 
         data-filter="entorno"
       >
-        Entorno
+        <span class="lang-es">Entorno</span><span class="lang-en">Environment</span>
       </button>
       <button 
         class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 bg-olive-500/10 text-olive-600 hover:bg-olive-500/20 cursor-pointer" 
         data-filter="urbanizacion"
       >
-        Urbanización
+        <span class="lang-es">Urbanización</span><span class="lang-en">Urbanization</span>
       </button>
       <button 
         class="filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 bg-olive-500/10 text-olive-600 hover:bg-olive-500/20 cursor-pointer" 
         data-filter="lotes"
       >
-        Lotes y Planos
+        <span class="lang-es">Lotes y Planos</span><span class="lang-en">Lots & Plans</span>
       </button>
     </div>
 
@@ -118,7 +138,7 @@ const images = [
           <!-- Image -->
           <Image 
             src={img.src} 
-            alt={img.alt} 
+            alt={img.altEs} 
             width={800}
             height={600}
             loading="lazy"
@@ -127,10 +147,12 @@ const images = [
           <!-- Hover Overlay -->
           <div class="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6">
             <span class="text-gold-500 text-[10px] font-sans font-semibold uppercase tracking-wider mb-1">
-              {img.category === 'entorno' ? 'Entorno' : img.category === 'urbanizacion' ? 'Urbanización' : 'Plano / Terreno'}
+              <span class="lang-es">{img.category === 'entorno' ? 'Entorno' : img.category === 'urbanizacion' ? 'Urbanización' : 'Plano / Terreno'}</span>
+              <span class="lang-en">{img.category === 'entorno' ? 'Environment' : img.category === 'urbanizacion' ? 'Urbanization' : 'Lot / Plan'}</span>
             </span>
             <h4 class="text-bone font-serif font-bold text-base md:text-lg leading-tight">
-              {img.title}
+              <span class="lang-es">{img.titleEs}</span>
+              <span class="lang-en">{img.titleEn}</span>
             </h4>
           </div>
         </div>

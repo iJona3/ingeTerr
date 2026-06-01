@@ -35,34 +35,61 @@ import logoImg from '../assets/images/coronado-logo.png';
       id="nav-links-container"
       class="hidden md:flex items-center gap-8 font-sans font-medium text-sm text-white/80"
     >
-      <a href="#inicio" class="nav-link relative py-1 hover:text-white transition-colors duration-300">Inicio</a>
-      <a href="#amenidades" class="nav-link relative py-1 hover:text-white transition-colors duration-300">Amenidades</a>
-      <a href="#beneficios" class="nav-link relative py-1 hover:text-white transition-colors duration-300">Diferenciales</a>
-      <a href="#galeria" class="nav-link relative py-1 hover:text-white transition-colors duration-300">Galería</a>
-      <a href="#testimonios" class="nav-link relative py-1 hover:text-white transition-colors duration-300">Reseñas</a>
+      <a href="#inicio" class="nav-link relative py-1 hover:text-white transition-colors duration-300">
+        <span class="lang-es">Inicio</span><span class="lang-en">Home</span>
+      </a>
+      <a href="#amenidades" class="nav-link relative py-1 hover:text-white transition-colors duration-300">
+        <span class="lang-es">Amenidades</span><span class="lang-en">Amenities</span>
+      </a>
+      <a href="#beneficios" class="nav-link relative py-1 hover:text-white transition-colors duration-300">
+        <span class="lang-es">Diferenciales</span><span class="lang-en">Benefits</span>
+      </a>
+      <a href="#galeria" class="nav-link relative py-1 hover:text-white transition-colors duration-300">
+        <span class="lang-es">Galería</span><span class="lang-en">Gallery</span>
+      </a>
+      <a href="#testimonios" class="nav-link relative py-1 hover:text-white transition-colors duration-300">
+        <span class="lang-es">Reseñas</span><span class="lang-en">Reviews</span>
+      </a>
     </div>
 
-    <!-- CTA Button -->
-    <div class="hidden md:block">
+    <!-- CTA Button and Lang Switcher -->
+    <div class="hidden md:flex items-center gap-4">
       <a 
         id="cta-btn"
         href="#contacto" 
         class="bg-white hover:bg-white/90 text-charcoal px-5 py-2.5 rounded-full font-sans font-semibold text-xs tracking-wider uppercase transition-all duration-300 shadow-md hover:-translate-y-0.5 block"
       >
-        Cotizar Lote
+        <span class="lang-es">Cotizar Lote</span><span class="lang-en">Get a Quote</span>
       </a>
+      
+      <button 
+        id="lang-toggle-btn"
+        class="flex items-center justify-center w-9 h-9 rounded-full border border-white/20 text-[10px] font-bold tracking-wider uppercase transition-all duration-300 hover:bg-white/10 cursor-pointer select-none"
+        aria-label="Cambiar idioma / Change language"
+      >
+        <span class="lang-es">EN</span><span class="lang-en">ES</span>
+      </button>
     </div>
 
-    <!-- Mobile Menu Button -->
-    <button 
-      class="md:hidden flex flex-col justify-center items-center w-8 h-8 rounded-full bg-white/10 text-white focus:outline-none transition-colors" 
-      id="mobile-menu-btn" 
-      aria-label="Menu principal"
-    >
-      <span class="w-4 h-0.5 bg-current rounded transition-all duration-300 origin-center translate-y-[-3px]" id="line1"></span>
-      <span class="w-4 h-0.5 bg-current rounded transition-all duration-300 origin-center" id="line2"></span>
-      <span class="w-4 h-0.5 bg-current rounded transition-all duration-300 origin-center translate-y-[3px]" id="line3"></span>
-    </button>
+    <!-- Mobile: Lang button + Hamburger button -->
+    <div class="md:hidden flex items-center gap-2">
+      <button 
+        id="lang-toggle-btn-mobile"
+        class="flex items-center justify-center w-9 h-9 rounded-full border border-white/20 text-[10px] font-bold tracking-wider uppercase transition-all duration-300 hover:bg-white/10 cursor-pointer select-none text-white"
+        aria-label="Cambiar idioma / Change language"
+      >
+        <span class="lang-es">EN</span><span class="lang-en">ES</span>
+      </button>
+      <button 
+        class="flex flex-col justify-center items-center w-8 h-8 rounded-full bg-white/10 text-white focus:outline-none transition-colors" 
+        id="mobile-menu-btn" 
+        aria-label="Menu principal"
+      >
+        <span class="w-4 h-0.5 bg-current rounded transition-all duration-300 origin-center translate-y-[-3px]" id="line1"></span>
+        <span class="w-4 h-0.5 bg-current rounded transition-all duration-300 origin-center" id="line2"></span>
+        <span class="w-4 h-0.5 bg-current rounded transition-all duration-300 origin-center translate-y-[3px]" id="line3"></span>
+      </button>
+    </div>
   </nav>
 
   <!-- Mobile Menu Dropdown (Initially matching the transparent dark look) -->
@@ -70,17 +97,28 @@ import logoImg from '../assets/images/coronado-logo.png';
     class="absolute top-20 left-4 right-4 bg-charcoal/95 backdrop-blur-xl border border-white/10 text-white rounded-2xl p-6 shadow-2xl flex flex-col gap-4 md:hidden opacity-0 pointer-events-none transform -translate-y-4 transition-all duration-300 z-40" 
     id="mobile-dropdown"
   >
-    <a href="#inicio" class="mobile-link text-white/90 font-sans font-medium text-base py-2 border-b border-white/5">Inicio</a>
-    <a href="#amenidades" class="mobile-link text-white/90 font-sans font-medium text-base py-2 border-b border-white/5">Amenidades</a>
-    <a href="#beneficios" class="mobile-link text-white/90 font-sans font-medium text-base py-2 border-b border-white/5">Diferenciales</a>
-    <a href="#galeria" class="mobile-link text-white/90 font-sans font-medium text-base py-2 border-b border-white/5">Galería</a>
-    <a href="#testimonios" class="mobile-link text-white/90 font-sans font-medium text-base py-2 border-b border-white/5">Reseñas</a>
+    <a href="#inicio" class="mobile-link text-white/90 font-sans font-medium text-base py-2 border-b border-white/5">
+      <span class="lang-es">Inicio</span><span class="lang-en">Home</span>
+    </a>
+    <a href="#amenidades" class="mobile-link text-white/90 font-sans font-medium text-base py-2 border-b border-white/5">
+      <span class="lang-es">Amenidades</span><span class="lang-en">Amenities</span>
+    </a>
+    <a href="#beneficios" class="mobile-link text-white/90 font-sans font-medium text-base py-2 border-b border-white/5">
+      <span class="lang-es">Diferenciales</span><span class="lang-en">Benefits</span>
+    </a>
+    <a href="#galeria" class="mobile-link text-white/90 font-sans font-medium text-base py-2 border-b border-white/5">
+      <span class="lang-es">Galería</span><span class="lang-en">Gallery</span>
+    </a>
+    <a href="#testimonios" class="mobile-link text-white/90 font-sans font-medium text-base py-2 border-b border-white/5">
+      <span class="lang-es">Reseñas</span><span class="lang-en">Reviews</span>
+    </a>
     <a 
       href="#contacto" 
       class="mobile-link bg-white text-charcoal text-center py-3 rounded-full font-sans font-semibold text-sm shadow-md mt-2"
     >
-      Cotizar Lote
+      <span class="lang-es">Cotizar Lote</span><span class="lang-en">Get a Quote</span>
     </a>
+
   </div>
 </header>
 
@@ -156,7 +194,15 @@ import logoImg from '../assets/images/coronado-logo.png';
         ctaBtn?.classList.remove('bg-white', 'text-charcoal', 'hover:bg-white/90');
         ctaBtn?.classList.add('bg-olive-500', 'text-bone', 'hover:bg-olive-600');
 
-        // Mobile button
+        // Transition Lang Switcher Buttons
+        const langBtn = document.getElementById('lang-toggle-btn');
+        langBtn?.classList.remove('border-white/20', 'text-white', 'hover:bg-white/10');
+        langBtn?.classList.add('border-charcoal/20', 'text-charcoal', 'hover:bg-charcoal/5');
+        const langBtnMobile = document.getElementById('lang-toggle-btn-mobile');
+        langBtnMobile?.classList.remove('border-white/20', 'text-white', 'hover:bg-white/10');
+        langBtnMobile?.classList.add('border-charcoal/20', 'text-charcoal', 'hover:bg-charcoal/5');
+
+        // Mobile hamburger button
         mobileBtn?.classList.remove('bg-white/10', 'text-white');
         mobileBtn?.classList.add('bg-olive-500/10', 'text-olive-600');
 
@@ -190,7 +236,15 @@ import logoImg from '../assets/images/coronado-logo.png';
         ctaBtn?.classList.add('bg-white', 'text-charcoal', 'hover:bg-white/90');
         ctaBtn?.classList.remove('bg-olive-500', 'text-bone', 'hover:bg-olive-600');
 
-        // Mobile button
+        // Transition Lang Switcher Buttons
+        const langBtn = document.getElementById('lang-toggle-btn');
+        langBtn?.classList.remove('border-charcoal/20', 'text-charcoal', 'hover:bg-charcoal/5');
+        langBtn?.classList.add('border-white/20', 'text-white', 'hover:bg-white/10');
+        const langBtnMobile = document.getElementById('lang-toggle-btn-mobile');
+        langBtnMobile?.classList.remove('border-charcoal/20', 'text-charcoal', 'hover:bg-charcoal/5');
+        langBtnMobile?.classList.add('border-white/20', 'text-white', 'hover:bg-white/10');
+
+        // Mobile hamburger button
         mobileBtn?.classList.add('bg-white/10', 'text-white');
         mobileBtn?.classList.remove('bg-olive-500/10', 'text-olive-600');
       }
@@ -245,5 +299,31 @@ import logoImg from '../assets/images/coronado-logo.png';
         });
       });
     }
+
+    // 3. Language Switching Logic
+    const toggleButtons = [
+      document.getElementById('lang-toggle-btn'),
+      document.getElementById('lang-toggle-btn-mobile')
+    ];
+
+    const changeLanguage = (lang: string) => {
+      if (lang === 'en') {
+        document.documentElement.classList.add('lang-en');
+      } else {
+        document.documentElement.classList.remove('lang-en');
+      }
+      localStorage.setItem('preferred-lang', lang);
+      window.dispatchEvent(new CustomEvent('langChanged', { detail: { lang } }));
+    };
+
+    toggleButtons.forEach(btn => {
+      btn?.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const currentLang = document.documentElement.classList.contains('lang-en') ? 'en' : 'es';
+        const newLang = currentLang === 'en' ? 'es' : 'en';
+        changeLanguage(newLang);
+      });
+    });
   });
 </script>
