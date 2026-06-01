@@ -1,125 +1,233 @@
 ---
 // Hero.astro
+// Componente de encabezado principal adaptado al diseño de referencia provisto
 ---
 
 <section 
   id="inicio" 
-  class="relative min-h-[95vh] pt-32 pb-24 md:pt-40 md:pb-36 bg-bone overflow-hidden clip-slant-hero flex items-center"
+  class="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-charcoal"
 >
-  <!-- Background Ambient Blooms -->
-  <div class="absolute top-1/4 left-[-10%] w-[45vw] h-[45vw] rounded-full bg-gold-500/10 blur-[120px] pointer-events-none animate-pulse-slow"></div>
-  <div class="absolute bottom-10 right-[-10%] w-[35vw] h-[35vw] rounded-full bg-olive-500/10 blur-[100px] pointer-events-none animate-float-delayed"></div>
+  <!-- Background Image with parallax overlay -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/images/hero-bg.png" 
+      alt="Desarrollo residencial premium Coronado Real Estate" 
+      class="w-full h-full object-cover object-center scale-105"
+      id="hero-bg-img"
+    />
+    <!-- Premium Overlay: dark gradient to ensure legibility -->
+    <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
+  </div>
 
-  <div class="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+  <!-- Ambient Light Blobs -->
+  <div class="absolute top-1/3 left-[-10%] w-[50vw] h-[50vw] rounded-full bg-gold-500/10 blur-[130px] pointer-events-none z-1"></div>
+  <div class="absolute bottom-10 right-[-10%] w-[40vw] h-[40vw] rounded-full bg-olive-500/10 blur-[120px] pointer-events-none z-1"></div>
+
+  <!-- Main Content Container -->
+  <div class="container mx-auto px-4 sm:px-6 md:px-8 max-w-7xl relative z-10 pt-28 pb-16 md:pt-36 md:pb-20">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center min-h-[70vh]">
       
       <!-- Text Column (Left) -->
       <div class="lg:col-span-7 flex flex-col items-start text-left reveal-left">
-        <!-- Floating Tag -->
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-olive-500/10 border border-olive-500/20 text-olive-600 font-sans font-semibold text-xs tracking-wider uppercase mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-olive-500 animate-ping"></span>
-          Coronado Real Estate • Construyendo la casa de tus sueños
+        <!-- Floating Tag/Slogan -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-gold-100 font-sans font-semibold text-xs tracking-wider uppercase mb-6 backdrop-blur-md">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold-500 animate-ping"></span>
+          Coronado Real Estate • Saltillo, Coah.
         </div>
         
-        <!-- Main Title -->
-        <h1 class="text-charcoal text-4xl sm:text-5xl md:text-6xl font-bold font-serif leading-[1.1] mb-6 tracking-tight">
-          El lienzo perfecto para construir tu <span class="text-olive-500 italic block mt-1 font-normal font-serif">futuro patrimonio</span>
+        <!-- Main Title (Based on reference) -->
+        <h1 class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-serif leading-[1.1] mb-6 tracking-tight">
+          Diseñando Sueños,<br class="hidden sm:inline"/>
+          Construyendo Futuros<br/>
+          con <span class="text-gold-500 italic font-normal font-serif">Elegancia</span> e <span class="text-gold-500 italic font-normal font-serif">Innovación</span>
         </h1>
         
         <!-- Description -->
-        <p class="text-charcoal/75 font-sans text-base md:text-lg leading-relaxed max-w-xl mb-8">
-          Descubre un desarrollo residencial exclusivo diseñado para fusionar la tranquilidad de la naturaleza con la infraestructura moderna que tu familia merece. Lotes urbanizados premium listos para construir.
+        <p class="text-white/80 font-sans text-base md:text-lg leading-relaxed max-w-xl mb-10">
+          Descubre un fraccionamiento residencial exclusivo en Saltillo, Coahuila. Lotes urbanizados premium listos para construir el hogar que tu familia merece, rodeados de naturaleza y confort.
         </p>
         
-        <!-- CTA Group -->
-        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-          <a 
-            href="#contacto" 
-            class="bg-olive-500 hover:bg-olive-600 text-bone px-8 py-4 rounded-full font-sans font-bold text-sm tracking-wider uppercase text-center transition-all duration-300 shadow-lg hover:shadow-olive-500/30 hover:-translate-y-1"
-          >
-            Ver Lotes Disponibles
-          </a>
-          <a 
-            href="#amenidades" 
-            class="border border-gold-500/40 hover:border-gold-500 text-charcoal/90 hover:text-charcoal px-8 py-4 rounded-full font-sans font-bold text-sm tracking-wider uppercase text-center transition-all duration-300 hover:bg-gold-500/5 hover:-translate-y-1"
-          >
-            Conocer Amenidades
-          </a>
-        </div>
-        
-        <!-- Micro indicators -->
-        <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-charcoal/10 w-full max-w-md">
-          <div>
-            <div class="text-olive-600 font-serif font-bold text-2xl md:text-3xl">250m²</div>
-            <div class="text-charcoal/60 font-sans text-xs uppercase tracking-wider mt-1">Desde</div>
-          </div>
-          <div>
-            <div class="text-olive-600 font-serif font-bold text-2xl md:text-3xl">20%</div>
-            <div class="text-charcoal/60 font-sans text-xs uppercase tracking-wider mt-1">Enganche</div>
-          </div>
-          <div>
-            <div class="text-olive-600 font-serif font-bold text-2xl md:text-3xl">100%</div>
-            <div class="text-charcoal/60 font-sans text-xs uppercase tracking-wider mt-1">Urbanizado</div>
-          </div>
-        </div>
+        <!-- Action Button (Play Video style from reference) -->
+        <button 
+          id="play-video-btn"
+          class="inline-flex items-center gap-3.5 bg-white hover:bg-white/95 text-charcoal px-8 py-4 rounded-full font-sans font-bold text-xs sm:text-sm tracking-wider uppercase transition-all duration-300 shadow-2xl hover:shadow-white/20 hover:-translate-y-1 cursor-pointer group"
+        >
+          <!-- Play Circle Icon -->
+          <span class="w-8 h-8 rounded-full bg-charcoal text-white flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 fill-current ml-0.5" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </span>
+          Conocer el Proyecto
+        </button>
       </div>
       
-      <!-- Image Column (Right) -->
-      <div class="lg:col-span-5 relative flex justify-center lg:justify-end reveal-right">
-        <!-- Image Stack Container -->
-        <div class="relative w-full max-w-[420px] aspect-[4/5] z-10">
+      <!-- Cards Column (Right - Based on reference) -->
+      <div class="lg:col-span-5 flex flex-col gap-6 justify-center w-full max-w-[460px] mx-auto lg:ml-auto reveal-right relative z-10">
+        
+        <!-- Card 1 (Metric - Simple) -->
+        <a 
+          href="#amenidades" 
+          class="group relative flex flex-col justify-between p-6 md:p-8 rounded-3xl bg-black/45 backdrop-blur-xl border border-white/10 hover:border-white/20 shadow-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-black/40 overflow-hidden cursor-pointer"
+        >
+          <!-- Shiny light effect -->
+          <div class="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/5 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
           
-          <!-- Back Decorative Box -->
-          <div class="absolute inset-0 bg-gold-500/10 border border-gold-500/20 rounded-[40px] transform rotate-[4deg] scale-102 -z-10"></div>
-          
-          <!-- Main Image -->
-          <div class="w-full h-full rounded-[40px] overflow-hidden shadow-2xl border-4 border-bone transform rotate-[-2deg] transition-all duration-500 hover:rotate-0 hover:scale-[1.01] cursor-pointer">
+          <div class="flex justify-between items-start w-full">
+            <div class="flex flex-col">
+              <span class="text-white font-serif font-bold text-2xl sm:text-3xl tracking-tight">100% Urbanizado</span>
+              <span class="text-gold-500 font-sans text-xs font-medium tracking-wider uppercase mt-1">Servicios subterráneos de primer nivel</span>
+            </div>
+            
+            <!-- Arrow Oblique Icon -->
+            <span class="w-10 h-10 rounded-full border border-white/20 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:text-charcoal group-hover:border-white transform group-hover:translate-x-1 group-hover:-translate-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" class="hidden" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Card 2 (Visual with image thumbnail) -->
+        <a 
+          href="#galeria" 
+          class="group relative flex flex-col p-5 md:p-6 rounded-3xl bg-black/45 backdrop-blur-xl border border-white/10 hover:border-white/20 shadow-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-black/40 overflow-hidden cursor-pointer"
+        >
+          <!-- Image Container inside Card -->
+          <div class="w-full aspect-[16/9] rounded-2xl overflow-hidden mb-5 border border-white/5 relative">
             <img 
               src="/images/8cf88e542d5b97d7a14bc8b3e6bbe57d.jpg" 
-              alt="Terrenos residenciales en venta" 
-              class="w-full h-full object-cover" 
+              alt="Sierra de Saltillo Coronado Real Estate" 
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
-          </div>
-          
-          <!-- Overlay Badge Floating (Plusvalía) -->
-          <div class="absolute bottom-6 -left-6 glass-card rounded-2xl p-4 shadow-xl border border-gold-500/30 flex items-center gap-3 animate-float max-w-[200px]">
-            <div class="w-10 h-10 rounded-full bg-olive-500/20 flex items-center justify-center text-olive-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-              </svg>
-            </div>
-            <div>
-              <div class="font-serif font-bold text-sm text-charcoal">+18%</div>
-              <div class="font-sans text-[10px] text-charcoal/60 uppercase tracking-wider">Plusvalía Anual Est.</div>
-            </div>
-          </div>
-          
-          <!-- Overlay Badge Floating (Seguridad) -->
-          <div class="absolute -top-6 -right-4 glass-card rounded-2xl p-4 shadow-xl border border-gold-500/30 flex items-center gap-3 animate-float-delayed max-w-[180px]">
-            <div class="w-10 h-10 rounded-full bg-gold-500/20 flex items-center justify-center text-gold-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-            </div>
-            <div>
-              <div class="font-serif font-bold text-xs text-charcoal">Privada Residencial</div>
-              <div class="font-sans text-[9px] text-charcoal/60 uppercase tracking-wider">Acceso Controlado</div>
-            </div>
+            <div class="absolute inset-0 bg-black/10"></div>
           </div>
 
-        </div>
+          <div class="flex justify-between items-end w-full">
+            <div class="flex flex-col">
+              <span class="text-white font-serif font-bold text-xl sm:text-2xl tracking-tight">Vistas Espectaculares</span>
+              <span class="text-white/60 font-sans text-xs tracking-wide mt-1">Explora un entorno natural único al pie de la Sierra.</span>
+            </div>
+            
+            <!-- Arrow Oblique Icon -->
+            <span class="w-10 h-10 rounded-full border border-white/20 text-white flex items-center justify-center transition-all duration-300 group-hover:bg-white group-hover:text-charcoal group-hover:border-white flex-shrink-0 ml-4 transform group-hover:translate-x-1 group-hover:-translate-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H9M17 7V15" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
       </div>
       
     </div>
   </div>
-  
-  <!-- Scroll Down indicator -->
-  <div class="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 hidden md:block">
-    <a href="#amenidades" class="flex flex-col items-center gap-2 group" aria-label="Ver amenidades">
-      <span class="text-[10px] uppercase font-sans tracking-widest text-charcoal/40 group-hover:text-olive-500 transition-colors">Deslizar</span>
-      <div class="w-6 h-10 rounded-full border border-charcoal/30 group-hover:border-olive-500 flex justify-center p-1.5 transition-colors">
-        <div class="w-1 h-2 rounded-full bg-charcoal/60 group-hover:bg-olive-500 animate-bounce"></div>
-      </div>
-    </a>
-  </div>
+
+  <!-- Ambient Bottom Fade -->
+  <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-bone to-transparent z-1"></div>
 </section>
+
+<!-- Cinematic Video Modal (Wow factor overlay) -->
+<div 
+  id="video-modal" 
+  class="fixed inset-0 z-[100] bg-charcoal/95 backdrop-blur-md flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300"
+  role="dialog"
+  aria-modal="true"
+>
+  <!-- Close Button -->
+  <button 
+    id="close-video-modal" 
+    class="absolute top-6 right-6 w-12 h-12 rounded-full bg-bone/10 hover:bg-bone/20 text-bone flex items-center justify-center text-2xl focus:outline-none transition-colors cursor-pointer"
+    aria-label="Cerrar video"
+  >
+    &times;
+  </button>
+
+  <!-- Video Iframe Container (Responsive 16:9) -->
+  <div class="w-full max-w-4xl max-h-[80vh] px-4">
+    <div class="relative aspect-[16/9] w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+      <!-- High quality drone real estate footage (Saltillo or mountain residential context placeholder) -->
+      <iframe 
+        id="modal-iframe"
+        class="absolute inset-0 w-full h-full" 
+        src="" 
+        title="Coronado Real Estate Presentación" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Subtle Parallax background adjustment */
+  #hero-bg-img {
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Parallax background movement
+    const heroSection = document.getElementById('inicio');
+    const heroBgImg = document.getElementById('hero-bg-img');
+
+    if (heroSection && heroBgImg) {
+      heroSection.addEventListener('mousemove', (e: MouseEvent) => {
+        const { width, height } = heroSection.getBoundingClientRect();
+        const moveX = (e.clientX - width / 2) / width * 10;
+        const moveY = (e.clientY - height / 2) / height * 10;
+        heroBgImg.style.transform = `scale(1.05) translate(${-moveX}px, ${-moveY}px)`;
+      });
+      
+      heroSection.addEventListener('mouseleave', () => {
+        heroBgImg.style.transform = 'scale(1.05) translate(0px, 0px)';
+      });
+    }
+
+    // Video Modal Open/Close Logic
+    const playBtn = document.getElementById('play-video-btn');
+    const videoModal = document.getElementById('video-modal');
+    const closeBtn = document.getElementById('close-video-modal');
+    const modalIframe = document.getElementById('modal-iframe') as HTMLIFrameElement;
+
+    // Cinematic real estate drone loop or showcase video URL (YouTube Embed)
+    const videoUrl = 'https://www.youtube.com/embed/5PSNL1yE68Y?autoplay=1&rel=0';
+
+    if (playBtn && videoModal && closeBtn && modalIframe) {
+      const openModal = () => {
+        modalIframe.src = videoUrl;
+        videoModal.classList.remove('opacity-0', 'pointer-events-none');
+        videoModal.classList.add('opacity-100', 'pointer-events-auto');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeModal = () => {
+        modalIframe.src = '';
+        videoModal.classList.add('opacity-0', 'pointer-events-none');
+        videoModal.classList.remove('opacity-100', 'pointer-events-auto');
+        document.body.style.overflow = '';
+      };
+
+      playBtn.addEventListener('click', openModal);
+      closeBtn.addEventListener('click', closeModal);
+
+      // Close on clicking outside container
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+          closeModal();
+        }
+      });
+
+      // Escape key to close
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && videoModal.classList.contains('opacity-100')) {
+          closeModal();
+        }
+      });
+    }
+  });
+</script>
