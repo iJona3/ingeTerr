@@ -1,51 +1,60 @@
 ---
 // InteractiveGallery.astro
+import { Image } from 'astro:assets';
+import galleryImg1 from '../assets/images/8cf88e542d5b97d7a14bc8b3e6bbe57d.jpg';
+import galleryImg2 from '../assets/images/12a00009671a0d08caf9cd8fde6575ea.jpg';
+import galleryImg3 from '../assets/images/4664131bf6c7861d8cc19f32b744394a.jpg';
+import galleryImg4 from '../assets/images/a169e17bb8e9920ed3620efd4606599e.jpg';
+import galleryImg5 from '../assets/images/b34bc8bd20cbe72fdc80906ce4b9ff97.jpg';
+import galleryImg6 from '../assets/images/b50907456928894b30f1c4cdce96cba0.jpg';
+import galleryImg7 from '../assets/images/c5bdb29c1f1bc15569e9336c15a8178c.jpg';
+import galleryImg8 from '../assets/images/c70e51c89a335408cbac50cb90c621ae.jpg';
 
 const images = [
   {
-    src: "/images/8cf88e542d5b97d7a14bc8b3e6bbe57d.jpg",
+    src: galleryImg1,
     alt: "Vista panorámica de la Sierra de Saltillo",
     category: "entorno",
     title: "Vistas de la Sierra"
   },
   {
-    src: "/images/12a00009671a0d08caf9cd8fde6575ea.jpg",
+    src: galleryImg2,
     alt: "Urbanización y calles pavimentadas del fraccionamiento",
     category: "urbanizacion",
     title: "Vías de Acceso"
   },
   {
-    src: "/images/4664131bf6c7861d8cc19f32b744394a.jpg",
+    src: galleryImg3,
     alt: "Trazo de lotes residenciales planos",
     category: "lotes",
     title: "Lotes Urbanizados"
   },
   {
-    src: "/images/a169e17bb8e9920ed3620efd4606599e.jpg",
+    src: galleryImg4,
     alt: "Plano digital de lotes y distribución urbana",
     category: "lotes",
     title: "Distribución de Lotes"
   },
   {
-    src: "/images/b34bc8bd20cbe72fdc80906ce4b9ff97.jpg",
+    src: galleryImg5,
     alt: "Maquinaria trabajando en la urbanización del terreno",
     category: "urbanizacion",
     title: "Obras de Urbanización"
   },
   {
-    src: "/images/b50907456928894b30f1c4cdce96cba0.jpg",
+    src: galleryImg6,
     alt: "Entorno natural y áreas arboladas",
     category: "entorno",
     title: "Áreas Verdes"
   },
   {
-    src: "/images/c5bdb29c1f1bc15569e9336c15a8178c.jpg",
+    src: galleryImg7,
     alt: "Avenidas principales del desarrollo residencial",
     category: "urbanizacion",
     title: "Avenidas Principales"
   },
   {
-    src: "/images/c70e51c89a335408cbac50cb90c621ae.jpg",
+    src: galleryImg8,
     alt: "Perspectiva de lotes residenciales disponibles",
     category: "lotes",
     title: "Lotes en Pre-venta"
@@ -107,9 +116,11 @@ const images = [
           data-index={index}
         >
           <!-- Image -->
-          <img 
+          <Image 
             src={img.src} 
             alt={img.alt} 
+            width={800}
+            height={600}
             loading="lazy"
             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />

@@ -1,5 +1,7 @@
 ---
 // Footer.astro
+import { Image } from 'astro:assets';
+import logoImg from '../assets/images/coronado-logo.png';
 ---
 
 <footer class="relative bg-charcoal text-bone/80 pt-32 pb-12 overflow-hidden clip-slant-footer z-20">
@@ -14,11 +16,13 @@
       <div class="md:col-span-5 flex flex-col items-start gap-4">
         <a href="#inicio" class="flex items-center gap-2 group">
           <!-- Logo image: brightness invert makes logo white on dark footer background -->
-          <img
-            src="/images/coronado-logo.png"
+          <Image
+            src={logoImg}
             alt="Coronado Real Estate logo"
             class="h-9 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
             style="max-width: 44px; filter: brightness(0) invert(1);"
+            width={88}
+            height={88}
           />
           <span class="text-bone font-serif font-bold text-xl tracking-wide">
             Coronado <span class="text-gold-500 font-sans font-light">Real Estate</span>

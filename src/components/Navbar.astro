@@ -1,5 +1,7 @@
 ---
 // Navbar.astro
+import { Image } from 'astro:assets';
+import logoImg from '../assets/images/coronado-logo.png';
 ---
 
 <header class="fixed top-0 left-0 w-full z-50 px-4 py-4 md:py-6 flex justify-center transition-all duration-500" id="navbar-header">
@@ -11,12 +13,14 @@
     <a href="#inicio" class="flex items-center gap-2 group">
       <!-- Logo image: mix-blend-multiply makes the white background transparent over glass nav.
            brightness-0 invert makes it white on dark background initially. -->
-      <img
+      <Image
         id="logo-img"
-        src="/images/coronado-logo.png"
+        src={logoImg}
         alt="Coronado Real Estate logo"
         class="h-9 w-auto object-contain mix-blend-multiply brightness-0 invert group-hover:scale-105 transition-transform duration-300"
         style="max-width: 44px;"
+        width={88}
+        height={88}
       />
       <span 
         id="brand-name"
