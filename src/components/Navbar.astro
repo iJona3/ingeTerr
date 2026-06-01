@@ -9,15 +9,11 @@ import logoImg from '../assets/images/coronado-logo.png';
     class="w-full max-w-5xl rounded-full px-6 py-3 md:px-8 md:py-4 flex items-center justify-between shadow-lg transition-all duration-500 scale-100 bg-black/25 border border-white/10 backdrop-blur-xl text-white" 
     id="navbar-pill"
   >
-    <!-- Brand / Logo -->
-    <a href="#inicio" class="flex items-center gap-2 group">
-      <!-- Logo image: mix-blend-multiply makes the white background transparent over glass nav.
-           brightness-0 invert makes it white on dark background initially. -->
       <Image
         id="logo-img"
         src={logoImg}
         alt="Coronado Real Estate logo"
-        class="h-9 w-auto object-contain mix-blend-multiply brightness-0 invert group-hover:scale-105 transition-transform duration-300"
+        class="h-9 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
         style="max-width: 44px;"
         width={88}
         height={88}
@@ -175,8 +171,7 @@ import logoImg from '../assets/images/coronado-logo.png';
         navbarPill?.classList.remove('py-3', 'px-6', 'md:px-8', 'md:py-4');
         navbarPill?.classList.add('py-2', 'px-5', 'md:px-6', 'md:py-3');
 
-        // Transition Brand Text and Logo
-        logoImg?.classList.remove('brightness-0', 'invert');
+        // Transition Brand Text
         brandName?.classList.remove('text-white');
         brandName?.classList.add('text-charcoal');
         brandSubname?.classList.remove('text-gold-500');
@@ -217,8 +212,7 @@ import logoImg from '../assets/images/coronado-logo.png';
         navbarPill?.classList.remove('py-2', 'px-5', 'md:px-6', 'md:py-3');
         navbarPill?.classList.add('py-3', 'px-6', 'md:px-8', 'md:py-4');
 
-        // Transition Brand Text and Logo
-        logoImg?.classList.add('brightness-0', 'invert');
+        // Transition Brand Text
         brandName?.classList.remove('text-charcoal');
         brandName?.classList.add('text-white');
         brandSubname?.classList.remove('text-olive-500');
